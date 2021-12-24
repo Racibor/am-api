@@ -7,10 +7,10 @@ import lombok.Data;
 @AllArgsConstructor
 public class Advertisement {
 
-    private long key;
-    private String title;
-    private String description;
-    private double price;
+    private final long key;
+    private final String title;
+    private final String description;
+    private final double price;
 
 }
 
