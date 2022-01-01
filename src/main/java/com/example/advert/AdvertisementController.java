@@ -1,15 +1,13 @@
 package com.example.advert;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("api/advertisement")
+@CrossOrigin(origins = "*")
+@RequestMapping("api/advertisements")
 public class AdvertisementController {
 
     private AdvertisementService advertisementService;
@@ -19,10 +17,15 @@ public class AdvertisementController {
         this.advertisementService = advertisementService;
     }
 
-    @CrossOrigin(origins = "*")
     @GetMapping
     public List<Advertisement> getAll(){
         return advertisementService.findAll();
+    }
+
+    @PostMapping
+    public String add(@RequestBody Advertisement advertisement){
+        Advertisement save = advertisementService.save(advertisement);
+        return "Dodano obiekt: " + save;
     }
 
 }
