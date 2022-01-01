@@ -35,4 +35,9 @@ public class AdvertisementInMemoryRepository implements AdvertisementRepository 
     public List<Advertisement> findAll() {
         return this.advertisements;
     }
+
+    @Override
+    public void save(Advertisement advertisement) {
+        this.advertisements.add(advertisement);
+    }
 }

@@ -5,5 +5,6 @@ import java.util.List;
 public interface AdvertisementRepository {
 
     List<Advertisement> findAll();
+    void save(Advertisement advertisement);
 
 }

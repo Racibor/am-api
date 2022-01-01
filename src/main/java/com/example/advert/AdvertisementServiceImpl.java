@@ -19,4 +19,17 @@ public class AdvertisementServiceImpl implements AdvertisementService{
     public List<Advertisement> findAll() {
         return this.advertisementRepository.findAll();
     }
+
+    @Override
+    public Advertisement save(Advertisement advertisement) {
+        long key = advertisementRepository.findAll().size() + 1;
+        Advertisement newAdvertisement = new Advertisement(
+                key,
+                advertisement.getTitle(),
+                advertisement.getDescription(),
+                advertisement.getPrice(),
+                advertisement.getBase64Image());
+        advertisementRepository.save(newAdvertisement);
+        return newAdvertisement;
+    }
 }
