@@ -28,6 +28,7 @@ public class AdvertisementServiceImpl implements AdvertisementService{
                 advertisement.getTitle(),
                 advertisement.getDescription(),
                 advertisement.getPrice(),
+                advertisement.getCategory(),
                 advertisement.getBase64Image());
         advertisementRepository.save(newAdvertisement);
         return newAdvertisement;

@@ -19,16 +19,30 @@ public class AdvertisementInMemoryRepository implements AdvertisementRepository 
 
         byte[] image = new byte[0];
         try {
-            File file = ResourceUtils.getFile("classpath:sandwich.jpg");
+            File file = ResourceUtils.getFile("classpath:samolot.jpg");
             image = FileUtils.readFileToByteArray(file);
+
+            this.advertisements.add(new Advertisement(1, "Samolot", "Jest bardzo duży!", 1000, "Elektronika",image));
+
+            file = ResourceUtils.getFile("classpath:sandwich.jpg");
+            image = FileUtils.readFileToByteArray(file);
+
+            this.advertisements.add(new Advertisement(2, "Kanapka", "Jest bardzo dobra!", 20, "Motoryzacja",image));
+
+            file = ResourceUtils.getFile("classpath:solnik.jpg");
+            image = FileUtils.readFileToByteArray(file);
+
+            this.advertisements.add(new Advertisement(3, "Solnik", "Jest bardzo pyszny!", 5, "Elektronika",image));
+
+            file = ResourceUtils.getFile("classpath:babka.jpg");
+            image = FileUtils.readFileToByteArray(file);
+
+            this.advertisements.add(new Advertisement(4, "Babka piaskowa", "Jest bardzo piaskowa!", 15, "Odzież",image));
+
         } catch (IOException e) {
             System.out.println("Error z plikiem");
         }
 
-        this.advertisements.add(new Advertisement(1, "Samolot", "Jest bardzo duży!", 1000, image));
-        this.advertisements.add(new Advertisement(2, "Kanapka", "Jest bardzo dobra!", 20, image));
-        this.advertisements.add(new Advertisement(3, "Solnik", "Jest bardzo pyszny!", 5, image));
-        this.advertisements.add(new Advertisement(4, "Babka piaskowa", "Jest bardzo piaskowa!", 15, image));
     }
 
     @Override

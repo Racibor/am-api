@@ -13,8 +13,9 @@ public class CategoryInMemoryRepository implements CategoryRepository {
 
     public CategoryInMemoryRepository() {
         this.categories = new HashMap<>();
-        this.categories.put("elektronika", new Category("elektronika", 1));
-        this.categories.put("odzież", new Category("odzież", 2));
+        this.categories.put("elektronika", new Category("Elektronika", 1));
+        this.categories.put("odzież", new Category("Odzież", 2));
+        this.categories.put("motoryzacja", new Category("Motoryzacja", 3));
     }
 
     @Override
