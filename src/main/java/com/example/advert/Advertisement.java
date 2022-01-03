@@ -12,6 +12,7 @@ public class Advertisement {
     private final String title;
     private final String description;
     private final double price;
+    private final String category;
     private final byte[] base64Image;
 
 }
