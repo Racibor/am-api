@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
 @CrossOrigin(origins = "*")
+@RestController
 @RequestMapping("api/advertisements")
 public class AdvertisementController {
 
@@ -16,9 +16,15 @@ public class AdvertisementController {
     public AdvertisementController(AdvertisementService advertisementService) {
         this.advertisementService = advertisementService;
     }
+    @GetMapping("/category")
+    public List<Advertisement> getAllFiltered(@RequestParam(name = "name") String name){
+        System.out.println("przyjęte");
+        return advertisementService.findFromCategory(name);
+    }
 
-    @GetMapping
+    @GetMapping()
     public List<Advertisement> getAll(){
+        System.out.println("coś");
         return advertisementService.findAll();
     }
 

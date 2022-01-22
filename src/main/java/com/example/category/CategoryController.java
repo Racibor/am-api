@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {
@@ -18,6 +19,7 @@ public class CategoryController {
     public CategoryController(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
+
 
     @CrossOrigin(origins = "*")
     @GetMapping
