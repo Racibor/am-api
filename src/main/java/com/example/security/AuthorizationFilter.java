@@ -24,10 +24,11 @@ public class AuthorizationFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpSession httpSession = ((HttpServletRequest) servletRequest).getSession(true);
-        /*User user = (User) httpSession.getAttribute("user");
+        User user = (User) httpSession.getAttribute("user");
         if(user == null) {
-            return;
-        }*/
+            User tempUser = new User("", "");
+            httpSession.setAttribute("user", tempUser);
+        }
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

@@ -11,8 +11,8 @@ public class UserRepository {
 
     public UserRepository() {
         this.users = new HashMap<>();
-        users.put("przemo", new User("przemo", "pass"));
-        users.put("ala", new User("ala", "pass"));
+        users.put("przemo", new User("przemo", "pass", true));
+        users.put("ala", new User("ala", "pass", true));
     }
 
     public User getUser(String key) {
