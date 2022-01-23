@@ -22,22 +22,22 @@ public class AdvertisementInMemoryRepository implements AdvertisementRepository 
             File file = ResourceUtils.getFile("classpath:samolot.jpg");
             image = FileUtils.readFileToByteArray(file);
 
-            this.advertisements.add(new Advertisement(1, "Samolot", "Jest bardzo duży!", 1000, "Elektronika",image));
+            this.advertisements.add(new Advertisement("przemo",1, "Samolot", "Jest bardzo duży!", 1000, "Elektronika",image));
 
             file = ResourceUtils.getFile("classpath:sandwich.jpg");
             image = FileUtils.readFileToByteArray(file);
 
-            this.advertisements.add(new Advertisement(2, "Kanapka", "Jest bardzo dobra!", 20, "Motoryzacja",image));
+            this.advertisements.add(new Advertisement("przemo",2, "Kanapka", "Jest bardzo dobra!", 20, "Motoryzacja",image));
 
             file = ResourceUtils.getFile("classpath:solnik.jpg");
             image = FileUtils.readFileToByteArray(file);
 
-            this.advertisements.add(new Advertisement(3, "Solnik", "Jest bardzo pyszny!", 5, "Elektronika",image));
+            this.advertisements.add(new Advertisement("ala",3, "Solnik", "Jest bardzo pyszny!", 5, "Elektronika",image));
 
             file = ResourceUtils.getFile("classpath:babka.jpg");
             image = FileUtils.readFileToByteArray(file);
 
-            this.advertisements.add(new Advertisement(4, "Babka piaskowa", "Jest bardzo piaskowa!", 15, "Odzież",image));
+            this.advertisements.add(new Advertisement("ala",4, "Babka piaskowa", "Jest bardzo piaskowa!", 15, "Odzież",image));
 
         } catch (IOException e) {
             System.out.println("Error z plikiem");

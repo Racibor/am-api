@@ -15,7 +15,7 @@ import java.util.Map;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("login")
+@RequestMapping("")
 public class LoginController {
 
     UserRepository userRepository;
@@ -27,7 +27,6 @@ public class LoginController {
         this.httpSession = httpSession;
     }
 
-    @CrossOrigin(origins = "*")
     @PostMapping("/login")
     public Map<String, String> login(HttpServletRequest httpRequest) {
         Map<String, String> response = new HashMap<>();
@@ -37,7 +36,7 @@ public class LoginController {
             if(parts.length == 2) {
                 User user = userRepository.getUser(parts[0]);
                 if(user != null) {
-                    if(user.pass == parts[1]) {
+                    if(user.pass.equals(parts[1])) {
                         httpSession.setAttribute("user", user);
                         response.put("success", "true");
                     }

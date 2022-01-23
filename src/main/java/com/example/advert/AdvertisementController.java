@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -34,9 +35,19 @@ public class AdvertisementController {
         return advertisementService.findAll();
     }
 
+    @GetMapping("/mine")
+    public List<Advertisement> getMine(){
+        User user = (User)httpSession.getAttribute("user");
+        System.out.println("mine adverts");
+        System.out.println("User registered: " + user.registered + " : " + user.login);
+        return advertisementService.findAll().stream().filter(e -> e.getUser().equals(user.login)).collect(Collectors.toList());
+    }
+
+
     @PostMapping("")
     public String add(@RequestBody Advertisement advertisement){
         Advertisement save = advertisementService.save(advertisement);
+        System.out.println("adding");
         User user = (User)httpSession.getAttribute("user");
         System.out.println("User registered: " + user.registered + " : " + user.login);
         return "Dodano obiekt: " + save;
@@ -45,6 +56,7 @@ public class AdvertisementController {
     @PutMapping("/edit")
     public String add(@RequestParam(name = "name") String key, @RequestBody Advertisement advertisement){
         Advertisement save = advertisementService.save(advertisement);
+        System.out.println("edit");
         User user = (User)httpSession.getAttribute("user");
         System.out.println("User registered: " + user.registered + " : " + user.login);
         return "Dodano obiekt: " + save;
