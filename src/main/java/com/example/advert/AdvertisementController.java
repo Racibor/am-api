@@ -42,4 +42,12 @@ public class AdvertisementController {
         return "Dodano obiekt: " + save;
     }
 
+    @PutMapping("/edit")
+    public String add(@RequestParam(name = "name") String key, @RequestBody Advertisement advertisement){
+        Advertisement save = advertisementService.save(advertisement);
+        User user = (User)httpSession.getAttribute("user");
+        System.out.println("User registered: " + user.registered + " : " + user.login);
+        return "Dodano obiekt: " + save;
+    }
+
 }
