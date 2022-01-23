@@ -47,6 +47,7 @@ public class AdvertisementController {
     @PostMapping("")
     public String add(@RequestBody Advertisement advertisement){
         Advertisement save = advertisementService.save(advertisement);
+        System.out.println(advertisement.getBase64Image().toString().substring(0, 100));
         System.out.println("adding");
         User user = (User)httpSession.getAttribute("user");
         System.out.println("User registered: " + user.registered + " : " + user.login);
