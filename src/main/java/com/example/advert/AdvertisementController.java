@@ -24,6 +24,8 @@ public class AdvertisementController {
     @GetMapping("/category")
     public List<Advertisement> getAllFiltered(@RequestParam(name = "name") String name){
         System.out.println("przyjęte");
+        User user = (User)httpSession.getAttribute("user");
+        System.out.println("User registered: " + user.registered + " : " + user.login);
         return advertisementService.findFromCategory(name);
     }
 
