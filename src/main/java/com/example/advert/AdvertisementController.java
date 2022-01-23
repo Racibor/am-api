@@ -55,7 +55,7 @@ public class AdvertisementController {
     }
 
     @PutMapping("/edit")
-    public String add(@RequestParam(name = "name") String key, @RequestBody Advertisement advertisement){
+    public String keepo(@RequestParam(name = "name") String key, @RequestBody Advertisement advertisement){
         Advertisement save = advertisementService.save(advertisement);
         System.out.println("edit");
         User user = (User)httpSession.getAttribute("user");
