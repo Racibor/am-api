@@ -30,6 +30,7 @@ public class AdvertisementServiceImpl implements AdvertisementService{
     public Advertisement save(Advertisement advertisement) {
         long key = advertisementRepository.findAll().size() + 1;
         Advertisement newAdvertisement = new Advertisement(
+                advertisement.getUser(),
                 key,
                 advertisement.getTitle(),
                 advertisement.getDescription(),
