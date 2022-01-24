@@ -3,10 +3,7 @@ package com.example.login;
 import com.example.security.User;
 import com.example.security.UserRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -52,7 +49,7 @@ public class LoginController {
         return response;
     }
 
-    @PostMapping("/logout")
+    @GetMapping("/logout")
     public Map<String, String> logout(HttpServletRequest httpRequest) {
         Map<String, String> response = new HashMap<>();
         httpSession.setAttribute("user", null);
