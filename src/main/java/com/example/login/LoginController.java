@@ -51,4 +51,12 @@ public class LoginController {
         }
         return response;
     }
+
+    @PostMapping("/logout")
+    public Map<String, String> logout(HttpServletRequest httpRequest) {
+        Map<String, String> response = new HashMap<>();
+        httpSession.setAttribute("user", null);
+        response.put("sucess", "true");
+        return response;
+    }
 }
