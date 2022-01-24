@@ -6,5 +6,5 @@ public interface AdvertisementRepository {
 
     List<Advertisement> findAll();
     void save(Advertisement advertisement);
-
+    Advertisement update(Advertisement advertisement);
 }

@@ -7,5 +7,6 @@ public interface AdvertisementService {
     List<Advertisement> findAll();
     List<Advertisement> findFromCategory(String name);
     Advertisement save(Advertisement advertisement);
+    Advertisement update(Advertisement advertisement);
 
 }

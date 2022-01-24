@@ -57,13 +57,13 @@ public class AdvertisementController {
         return "Dodano obiekt: " + save;
     }
 
-    @PutMapping("/edit")
-    public String keepo(@RequestParam(name = "name") String key, @RequestBody Advertisement advertisement){
-        Advertisement save = advertisementService.save(advertisement);
+    @PutMapping("")
+    public Advertisement update(@RequestBody Advertisement advertisement){
+        advertisementService.update(advertisement);
         System.out.println("edit");
         User user = (User)httpSession.getAttribute("user");
         System.out.println("User registered: " + user.registered + " : " + user.login);
-        return "Dodano obiekt: " + save;
+        return advertisement;
     }
 
 }

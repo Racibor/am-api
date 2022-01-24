@@ -40,4 +40,9 @@ public class AdvertisementServiceImpl implements AdvertisementService{
         advertisementRepository.save(newAdvertisement);
         return newAdvertisement;
     }
+
+    @Override
+    public Advertisement update(Advertisement advertisement) {
+        return advertisementRepository.update(advertisement);
+    }
 }
